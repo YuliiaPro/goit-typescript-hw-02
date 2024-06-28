@@ -1,0 +1,7 @@
+.croppedImage {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    clip-path: inset(0 0 0 0);
+   
+}
