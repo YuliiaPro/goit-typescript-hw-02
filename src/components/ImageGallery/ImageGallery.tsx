@@ -1,7 +1,7 @@
 import React from "react";
 import ImageCard from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
-import { ImageGalleryProps } from "../../types";
+import type { ImageGalleryProps } from "../../types";
 
 
 

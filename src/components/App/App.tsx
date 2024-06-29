@@ -6,7 +6,8 @@ import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import ImageModal from "../ImageModal/ImageModal";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
-import type {Image, ModalData} from "../../types"
+import type { Image, ModalData } from "../../types"
+
 
 
 const App: React.FC = () => {

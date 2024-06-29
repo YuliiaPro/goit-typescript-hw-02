@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { ImagesApiResponse } from "./types";
+import type { ImagesApiResponse } from "./types";
 
 const API_KEY = "Client-ID BUHrMGvMuA8lB1v5PKFqYkkPpW42xAB7bbEGOIV9Quk";
 axios.defaults.baseURL = "https://api.unsplash.com";
@@ -19,5 +19,3 @@ export const getImages = async <T> (topic: string, currentPage:number): Promise<
     totalPage: response.data.totalPage,
   };
 };
-
-//totalPage: response.data.total_pages,

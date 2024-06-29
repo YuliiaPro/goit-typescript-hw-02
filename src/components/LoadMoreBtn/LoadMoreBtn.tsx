@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./LoadMoreBtn.module.css";
-import { LoadMoreBtnProps } from "../../types";
+import type { LoadMoreBtnProps } from "../../types";
 
 const LoadMoreBtn: React.FC<LoadMoreBtnProps> = ({ handleLoadMore }) => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
-import { ImageModalProps } from "../../types";
+import type { ImageModalProps } from "../../types";
 
 
 Modal.setAppElement("#modal");

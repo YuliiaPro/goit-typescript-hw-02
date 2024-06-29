@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageCardProps } from "../../types";
+import type { ImageCardProps } from "../../types";
 import css from "./ImageCard.module.css";
 
 const ImageCard: React.FC<ImageCardProps> = ({
