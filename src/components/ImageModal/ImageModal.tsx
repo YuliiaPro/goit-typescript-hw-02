@@ -1,16 +1,28 @@
+import React from "react";
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
+import { ImageModalProps } from "../../types";
+
 
 Modal.setAppElement("#modal");
 
-export default function ImageModal({
-  image: { full, alt_description },
-  modalIsOpen,
+const ImageModal: React.FC<ImageModalProps> = ({
+  image,
+  isOpen,
   closeModal,
-}) {
+}) => {
+
+  const { full = "", alt_description = "" } = image || {};
+
+  if (!isOpen || !image) {
+    return null; 
+  }
+
+
+
   return (
     <Modal
-      isOpen={modalIsOpen}
+      isOpen={isOpen}
       shouldCloseOnEsc={true}
       onRequestClose={closeModal}
       className={css.modal}
@@ -21,3 +33,5 @@ export default function ImageModal({
     </Modal>
   );
 }
+
+export default ImageModal;

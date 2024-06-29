@@ -1,12 +1,14 @@
+import React from "react";
+import { ImageCardProps } from "../../types";
 import css from "./ImageCard.module.css";
 
-export default function ImageCard({
+const ImageCard: React.FC<ImageCardProps> = ({
   image: {
     alt_description,
     urls: { small, full },
   },
   isOpen,
-}) {
+}) => {
   const handleClick = () => {
     isOpen({ full, alt_description });
   };
@@ -22,3 +24,5 @@ export default function ImageCard({
     </div>
   );
 }
+
+export default ImageCard;
