@@ -3,14 +3,21 @@ export interface Image {
     urls: { small: string, full:string }  
 }
 
+export interface ModalData {
+  full: string;
+  alt_description: string;
+}
+
+export type ModalOpener = (data: ModalData) => void;
+
 export interface ImageCardProps {
     image: Image;
-    isOpen: (data: { full: string, alt_description: string }) => void;
+    openModal: ModalOpener;
 }
 
 export interface ImageGalleryProps {
     items: Image[];
-    isOpen: (data: { full: string, alt_description: string }) => void;
+    openModal: ModalOpener;
 }
 
 
@@ -20,8 +27,8 @@ export interface ImagesApiResponse<T> {
 }
 
 export interface ImageModalProps {
-    image: { full: string, alt_description: string };
-    isOpen: boolean;
+    image: ModalData | null;
+    modalIsOpen: boolean;
     closeModal: () => void;
 }
 

@@ -6,7 +6,8 @@ import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import ImageModal from "../ImageModal/ImageModal";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
-import {Image, ImageModalProps} from "../../types"
+import type {Image, ModalData} from "../../types"
+
 
 const App: React.FC = () => {
   const [images, setImages] = useState<Image[]>([]);
@@ -15,7 +16,7 @@ const App: React.FC = () => {
   const [page, setPage] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedImage, setSelectedImage] = useState<ImageModalProps | null>(null);
+  const [selectedImage, setSelectedImage] = useState<ModalData | null>(null);
   const [showBtn, setShowBtn] = useState<boolean>(false);
 
   useEffect(() => {
@@ -50,27 +51,25 @@ const App: React.FC = () => {
     setPage((page) => page + 1);
   };
 
-  const openModal = (image: ImageModalProps | null) => {
-    if (image) {
+  const openModal = (image: ModalData) => {
       setSelectedImage(image);
-    setIsOpen(true);
-    }
-    
+    setIsOpen(true);   
   };
 
   const closeModal = () => {
     setIsOpen(false);
+    setSelectedImage(null);
   };
 
   return (
     <div>
       <ImageModal
-        isOpen={modalIsOpen}
+        modalIsOpen={modalIsOpen}
         image={selectedImage} 
         closeModal={closeModal}
       />
       <SearchBar onSubmit={handleSearch} />
-      {images.length > 0 && <ImageGallery items={images} isOpen={openModal} />}
+      {images.length > 0 && <ImageGallery items={images} openModal={openModal} />}
       {loading && <Loader />}
       {error && <ErrorMessage />}
       {images.length > 0 && !loading && showBtn && (

@@ -7,10 +7,10 @@ const ImageCard: React.FC<ImageCardProps> = ({
     alt_description,
     urls: { small, full },
   },
-  isOpen,
+  openModal,
 }) => {
   const handleClick = () => {
-    isOpen({ full, alt_description });
+    openModal({ full, alt_description });
   };
 
   return (

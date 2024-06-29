@@ -5,12 +5,12 @@ import { ImageGalleryProps } from "../../types";
 
 
 
-const ImageGallery:React.FC<ImageGalleryProps> = ({ items, isOpen }) => {
+const ImageGallery:React.FC<ImageGalleryProps> = ({ items, openModal }) => {
   return (
     <ul className={css.container}>
       {items.map((item, index) => (
         <li key={index}>
-          <ImageCard image={item} isOpen={isOpen} />
+          <ImageCard image={item} openModal={openModal} />
         </li>
       ))}
     </ul>

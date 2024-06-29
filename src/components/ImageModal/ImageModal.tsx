@@ -8,21 +8,20 @@ Modal.setAppElement("#modal");
 
 const ImageModal: React.FC<ImageModalProps> = ({
   image,
-  isOpen,
+  modalIsOpen,
   closeModal,
 }) => {
 
-  const { full = "", alt_description = "" } = image || {};
-
-  if (!isOpen || !image) {
+   if (!modalIsOpen || !image) {
     return null; 
+    
   }
 
-
+ const { full = "", alt_description = "" } = image;
 
   return (
     <Modal
-      isOpen={isOpen}
+      isOpen={modalIsOpen}
       shouldCloseOnEsc={true}
       onRequestClose={closeModal}
       className={css.modal}
